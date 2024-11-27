@@ -1,6 +1,7 @@
 {
-  "name": "native-barcode-scanner",
-  "version": "1.3.0",
+  "name": "native-barcode-scanner-custom",
+  "version": "1.4.0",
+  "type": "module",
   "description": "A simple barcode scanner utility for node",
   "main": "dist/index.module.js",
   "scripts": {
