@@ -20,7 +20,7 @@ export default function (options, key) {
   const timeStamp = new Date().getTime();
   const timeDiff = timeStamp - lastTime;
   lastTime = timeStamp;
-
+  
   if (key.includes("Shift")) return uppercase = true;
   
   if (timeDiff > latency) {
@@ -32,11 +32,15 @@ export default function (options, key) {
       uppercase = false
     } else code = "";
 
-  } else if (isValid(validKey, key)) {
+  } else if (isValid(validKey, key) || (key == '*' || (key.length > 1 && key != 'Enter'))) {
+
     // Still scanning
+    if(key == '*' || (key.length > 1 && key != 'Enter')){
+      key = '-'
+    }
+
     code += formatKey(uppercase, key);
     uppercase = false
-
   } else {
     if (isEndKey(endKey, key)) {
       // End of barcode
